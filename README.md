@@ -1,17 +1,30 @@
-# post_notify
+# Post Notify
 
-A new Flutter project.
 
-## Getting Started
+This Flutter application demonstrates a clean, scalable implementation for fetching, displaying, and navigating paginated post data using **BLoC State Management** and **Clean Architecture** principles.
 
-This project is a starting point for a Flutter application.
+The app fetches posts from the `{JSON} Placeholder API` (`https://jsonplaceholder.typicode.com/posts`) and features dynamic pagination, offline/error handling, and system-level local notifications linked to deep-navigation details.
 
-A few resources to get you started if this is your first Flutter project:
+### Key Features
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- **Paginated Posts Feed (Screen 1):**
+    - Fetches post items dynamically with infinite scroll up to 100 items.
+    - Displays post ID, title, and a preview snippet.
+    - Native **Pull-to-Refresh** support.
+    - Robust state handling for loading indicators, internet connectivity checks, and API failure retries.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Local Notifications Integration:**
+    - Includes a **"Notify Me"** action on each post card.
+    - Triggers local notifications populated with the post title and post ID payload.
+    - Handles runtime notification permissions cleanly.
+
+- **Post Details Page (Screen 2):**
+    - Displays detailed post metrics (Post ID, User ID, full Title, and Body).
+    - **Notification Navigation:** Tapping a notification directly opens the corresponding post details page whether the app is in the **foreground**, **background**, or launched from a **terminated state**.
+
+### Architecture & Engineering Highlights
+
+- **BLoC Pattern:** Enforces strict separation between presentation logic and business state transitions.
+- **Clean Architecture Layering:** Segregates code into Data, Domain, and Presentation layers to ensure high testability, maintainability, and scalability.
+- **Decoupled Business Logic:** Keeps raw API services, HTTP client logic, and platform notification dispatchers completely outside UI Widgets.
+
