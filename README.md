@@ -5,6 +5,48 @@ This Flutter application demonstrates a clean, scalable implementation for fetch
 
 The app fetches posts from the `{JSON} Placeholder API` (`https://jsonplaceholder.typicode.com/posts`) and features dynamic pagination, offline/error handling, and system-level local notifications linked to deep-navigation details.
 
+## Required platform setup
+
+### Android
+`android/app/src/main/AndroidManifest.xml` (inside `<manifest>`, above `<application>`):
+```xml
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+`android/app/build.gradle(.kts)` - the plugin needs core library desugaring and compileSdk 34+:
+```kotlin
+android {
+    compileSdk = 35
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+}
+```
+
+
+## Folder structure
+```
+lib/
+├── main.dart · app.dart · injection_container.dart (get_it)
+├── core/            constants, error (failures/exceptions), network, router, theme, usecase, widgets
+└── features/
+    ├── posts/
+    │   ├── domain/        entities · repositories (abstract) · usecases
+    │   ├── data/          models · datasources (http) · repositories (impl)
+    │   └── presentation/  bloc (posts, post_details) · pages · widgets
+    └── notifications/
+        ├── domain/        NotificationPayload · repository · usecases
+        ├── data/          flutter_local_notifications data source · repository impl
+        └── presentation/  NotificationCubit · NotificationNavigationHandler
+```
+
+
 ### Key Features
 
 - **Paginated Posts Feed (Screen 1):**
