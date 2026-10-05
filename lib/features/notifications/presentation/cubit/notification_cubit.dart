@@ -4,7 +4,6 @@ import '../../../../core/error/failures.dart';
 import '../../domain/entities/notification_payload.dart';
 import '../../domain/usecases/show_post_notification.dart';
 
-// Plain classes (no Equatable) so repeated taps always re-emit and re-trigger listeners.
 sealed class NotificationState {
   const NotificationState();
 }

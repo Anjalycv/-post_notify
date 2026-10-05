@@ -17,7 +17,7 @@ class PostDetailsPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => sl<PostDetailsBloc>()..add(PostDetailsRequested(postId)),
       child: Scaffold(
-        appBar: AppBar(title: Text('Post #$postId')),
+        appBar: AppBar(title: Text('Post $postId')),
         body: BlocBuilder<PostDetailsBloc, PostDetailsState>(
           builder: (context, state) {
             switch (state.status) {
@@ -59,7 +59,7 @@ class _Content extends StatelessWidget {
             runSpacing: 8,
             children: [
               _InfoChip(
-                icon: Icons.tag_rounded,
+                icon: Icons.import_contacts,
                 label: 'Post ID',
                 value: '${post.id}',
                 background: scheme.primaryContainer,

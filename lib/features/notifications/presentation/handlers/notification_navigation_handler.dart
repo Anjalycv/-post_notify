@@ -6,9 +6,7 @@ import '../../../../core/router/app_router.dart';
 import '../../domain/entities/notification_payload.dart';
 import '../../domain/usecases/observe_notification_taps.dart';
 
-/// Opens the post details screen when a notification is tapped:
-///  - app open / background -> listens to the tap stream
-///  - app terminated        -> handles [launchPayload] after the first frame
+
 class NotificationNavigationHandler {
   final ObserveNotificationTaps _observeTaps;
   StreamSubscription<NotificationPayload>? _subscription;

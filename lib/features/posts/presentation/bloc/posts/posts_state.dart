@@ -10,10 +10,8 @@ class PostsState extends Equatable {
   final bool hasReachedMax;
   final bool isLoadingMore;
 
-  /// Full-screen failure (nothing to show).
   final Failure? failure;
 
-  /// Failure while loading more / refreshing when posts are already on screen.
   final Failure? pageFailure;
 
   const PostsState({

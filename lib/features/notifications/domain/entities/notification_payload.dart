@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
-/// Data carried inside the local notification: post title + post ID.
 class NotificationPayload extends Equatable {
   final int postId;
   final String title;

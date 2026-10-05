@@ -34,7 +34,7 @@ class PostCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
-                  '#${post.id}',
+                  '${post.id}',
                   style: theme.textTheme.labelMedium?.copyWith(
                     color: scheme.onPrimaryContainer,
                     fontWeight: FontWeight.w700,

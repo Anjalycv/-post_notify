@@ -5,7 +5,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import '../../domain/entities/notification_payload.dart';
 
-/// All flutter_local_notifications code lives here - never in widgets.
+
 class NotificationLocalDataSource {
   final FlutterLocalNotificationsPlugin _plugin;
   final _tapController = StreamController<NotificationPayload>.broadcast();

@@ -9,7 +9,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
 
-  // Was the app cold-started by tapping a notification?
   final launch = await di.sl<GetLaunchNotification>()(const NoParams());
   final launchPayload = launch.fold((_) => null, (payload) => payload);
 
